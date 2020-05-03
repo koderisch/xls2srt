@@ -12,7 +12,7 @@ docker build -t xls2srt .
 ## Running commands
 Once the image is built you can use the following commands to process files and folders
 
-### Precessing a single file
+### Processing a single file
 
 * To convert a single file with name {{input-file}} and frame rate {{frame-rate}}
 
