@@ -34,11 +34,9 @@ class ConvertXls2srt {
     // check if path provided is pointing to a file or directory
     if (fs.existsSync(this.inputPath)) {
       if (fs.lstatSync(this.inputPath).isFile()) {
-        //console.log("file");
         // if it is a file, process a single file
         this.convertToSrt(this.inputPath);
       } else if (fs.lstatSync(this.inputPath).isDirectory()) {
-        //console.log("dir");
         // if it is a folder, process all xls or xlsx files inside the folder
         let files = fs.readdirSync(this.inputPath).map((fileName) => {
           return fileName;
@@ -64,7 +62,6 @@ class ConvertXls2srt {
     const filePathOut = filePathIn.split('.xls')[0] + '.srt';
 
     const workSheetsFromFile = xlsx.parse(filePathIn);
-    //console.log(workSheetsFromFile[0]["data"]);
     let rows = workSheetsFromFile[0]['data'];
 
     for (const row in rows) {
@@ -74,10 +71,8 @@ class ConvertXls2srt {
         let subOUT = this.convertToMillisecondsTC(rows[row][2]);
         var subTxt = rows[row][4].replace(/\s*$/, '');
         srtData += subNo + '\n' + subIN + ' --> ' + subOUT + '\n' + subTxt + '\n\n';
-        //console.log(rows[row][0]);
       }
     }
-    //console.log(srtData);
 
     fs.writeFile(filePathOut, srtData, function (err) {
       if (err) {
@@ -92,7 +87,6 @@ class ConvertXls2srt {
     let milliseconds = Math.floor((1000 / this.fps) * frames);
     let formattedMs = ('00' + milliseconds).slice(-3);
     let msTC = tc.substr(0, 9) + formattedMs;
-    //console.log(msTC);
     return msTC;
   }
 }
