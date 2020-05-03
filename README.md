@@ -1,5 +1,7 @@
 # xls2srt
-Convert subtitle scripts from xls to srt format
+Node.js app to convert subtitle scripts from xls to srt format.
+
+It can be run in local dev environment using ```node xsl2srt.js``` or inside a Docker container.
 
 ## Building Docker image
 
