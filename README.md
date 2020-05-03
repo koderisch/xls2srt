@@ -10,7 +10,7 @@ docker build -t xls2srt .
 ```
 
 ## Running commands
-Once the image is built you can use the following commands to process files and folders
+Once the image is built you can use the following commands to process files and folders. Output file(s) is/are currently written to the folder containing the input files.
 
 ### Processing a single file
 
